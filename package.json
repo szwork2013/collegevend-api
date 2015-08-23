@@ -1,0 +1,19 @@
+{
+  "name": "collegevend-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrei Maximov",
+  "dependencies": {
+    "async": "^1.4.2",
+    "joi": "^6.6.1",
+    "mysql": "^2.8.0",
+    "restify": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.4.0"
+  }
+}

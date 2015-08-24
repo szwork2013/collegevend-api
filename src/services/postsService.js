@@ -44,13 +44,17 @@ module.exports = {
         database.query('UPDATE posts SET ? WHERE id = ?',
           [post, id],
           function(err, result) {
-            if (!err && result.affectedRows === 0) {
-              err = new Error('No post with id ' + id + '.');
-              err.name = 'InvalidArgumentError';
-            }
-            callback(err, id);
+            callback(err, result);
           }
         );
+      },
+      function(result, callback) {
+        if (result.affectedRows === 0) {
+          var err = new Error('No post with id ' + id + '.');
+          err.name = 'InvalidArgumentError';
+          return callback(err, null);
+        }
+        callback(null, id);
       },
       function(id, callback) {
         module.exports.fetchById(id, callback);

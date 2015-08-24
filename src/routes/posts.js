@@ -1,3 +1,5 @@
+'use strict';
+
 var postsController = require('../controllers/postsController');
 var postValidator = require('../validators/postValidator');
 

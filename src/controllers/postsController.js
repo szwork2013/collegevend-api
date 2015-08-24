@@ -1,7 +1,9 @@
+'use strict';
+
 var postsService = require('../services/postsService');
 
 module.exports = {
-    getPostsCollectionAction: function (req, res, next) {
+    getPostsCollectionAction: function(req, res, next) {
         postsService.fetchCollection(function onFetchCollection(err, posts) {
             if (err)
                 return next(err);
@@ -26,14 +28,18 @@ module.exports = {
         });
     },
     putPostEntityAction: function(req, res, next) {
-        postsService.updateById(req.params.id, req.body, function onUpdateById(err, post) {
-            if (err) {
-                if (err.name === 'InvalidArgumentError')
-                    return res.send(404);
-                return next(err)
+        postsService.updateById(
+            req.params.id,
+            req.body,
+            function onUpdateById(err, post) {
+                if (err) {
+                    if (err.name === 'InvalidArgumentError')
+                        return res.send(404);
+                    return next(err);
+                }
+                res.send(post);
             }
-            res.send(post);
-        });
+        );
     },
     deletePostEntityAction: function(req, res, next) {
         postsService.deleteById(req.params.id, function onDeleteById(err) {
@@ -44,5 +50,5 @@ module.exports = {
             }
             res.send(204);
         });
-    }
+    },
 };

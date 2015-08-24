@@ -1,3 +1,5 @@
+'use strict';
+
 var joi = require('joi');
 
 var schema = joi.object().keys({
@@ -10,19 +12,19 @@ var schema = joi.object().keys({
     description: joi
         .string()
         .min(25)
-        .required()
+        .required(),
 });
 
 module.exports = {
     schema: schema,
     validator: function validator(req, res, next) {
         var result = joi.validate(req.body, schema, {
-            context: { method: req.method }
+            context: { method: req.method },
         });
         if (result.error !== null) {
             return next(result.error);
         }
         req.body = result.value;
         next();
-    }
+    },
 };

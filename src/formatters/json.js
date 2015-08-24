@@ -1,3 +1,5 @@
+'use strict';
+
 var restifyJSONFormatter = require('restify/lib/formatters/json');
 
 function formatJSON(req, res, body) {

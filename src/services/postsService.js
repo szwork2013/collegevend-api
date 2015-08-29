@@ -1,16 +1,16 @@
 'use strict';
 
-var database = require('./database');
+var mysql = require('./mysql');
 var async = require('async');
 
 module.exports = {
   fetchCollection: function(callback) {
-    database.query('SELECT * FROM posts', function(err, rows) {
+    mysql.query('SELECT * FROM posts', function(err, rows) {
       callback(err, rows);
     });
   },
   fetchById: function(id, callback) {
-    database.query(
+    mysql.query(
       'SELECT * FROM posts WHERE id = ? LIMIT 1',
       [id],
       function(err, rows) {
@@ -25,7 +25,7 @@ module.exports = {
   create: function(post, callback) {
     async.waterfall([
       function(callback) {
-        database.query(
+        mysql.query(
           'INSERT INTO posts SET ?',
           [post],
           function(err, result) {
@@ -41,7 +41,7 @@ module.exports = {
   updateById: function(id, post, callback) {
     async.waterfall([
       function(callback) {
-        database.query('UPDATE posts SET ? WHERE id = ?',
+        mysql.query('UPDATE posts SET ? WHERE id = ?',
           [post, id],
           function(err, result) {
             callback(err, result);
@@ -62,7 +62,7 @@ module.exports = {
     ], callback);
   },
   deleteById: function(id, callback) {
-    database.query(
+    mysql.query(
       'DELETE FROM posts WHERE id = ?',
       [id],
       function(err, result) {

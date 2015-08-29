@@ -1,3 +1,4 @@
 module.exports = {
-  database: require('./database'),
+  mysql: require('./mysql'),
+  mongodb: require('./mongodb'),
 };

@@ -18,9 +18,7 @@ var schema = joi.object().keys({
 module.exports = {
   schema: schema,
   validator: function validator(req, res, next) {
-    var result = joi.validate(req.body, schema, {
-      context: {method: req.method},
-    });
+    var result = joi.validate(req.body, schema);
     if (result.error !== null) {
       return next(result.error);
     }

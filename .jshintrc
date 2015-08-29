@@ -1,8 +1,8 @@
 {
-    "strict": true,
-    "node": true,
-    "eqeqeq": true,
-    "latedef": true,
-    "noarg": true,
-    "unused": true
+  "strict": true,
+  "node": true,
+  "eqeqeq": true,
+  "latedef": true,
+  "noarg": true,
+  "unused": true
 }

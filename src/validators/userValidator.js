@@ -4,16 +4,17 @@ var joi = require('joi');
 var joiValidator = require('./joiValidator');
 
 var schema = joi.object().keys({
-  price: joi
-    .number()
-    .positive()
-    .less(10000)
-    .precision(2)
-    .required(),
-  description: joi
+  first_name: joi
     .string()
-    .min(25)
+    .min(3)
+    .max(20)
+    .trim()
     .required(),
+  last_name: joi
+    .string()
+    .max(20)
+    .allow('')
+    .trim(),
 });
 
 module.exports = joiValidator(schema);

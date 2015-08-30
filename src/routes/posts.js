@@ -13,13 +13,13 @@ module.exports = function(server) {
   server.post(
     '/posts',
     auth,
-    postValidator.validator,
+    postValidator,
     postsController.postPostEntityAction
   );
   server.put(
     'posts/:id',
     auth,
-    postValidator.validator,
+    postValidator,
     postsController.putPostEntityAction
   );
   server.del(

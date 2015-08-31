@@ -4,7 +4,7 @@ var mongoose = require('../services/mongodb');
 
 var postSchema = new mongoose.Schema({
   _user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
     required: true,
   },

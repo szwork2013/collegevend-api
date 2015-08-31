@@ -22,7 +22,7 @@ module.exports = {
     });
   },
   postPostEntityAction: function(req, res, next) {
-    req.body._user = req.user._id;
+    req.body._user = req.user.username;
     var post = new Post(req.body);
     post.save(function(err) {
       if (err) {

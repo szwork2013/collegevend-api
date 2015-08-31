@@ -3,7 +3,7 @@
 var mongoose = require('../services/mongodb');
 
 var userSchema = new mongoose.Schema({
-  _id: String,
+  username: String,
   first_name: String,
   last_name: String,
   access_tokens: [String],

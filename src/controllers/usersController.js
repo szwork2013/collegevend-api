@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 module.exports = {
   getUserEntityAction: function(req, res, next) {
-    User.findById(req.params.username, function(err, user) {
+    User.findOne({ username: req.params.username }, function(err, user) {
       if (err)
         return next(err);
       if (!err && user === null) {
@@ -15,7 +15,7 @@ module.exports = {
   },
   putUserEntityAction: function(req, res, next) {
     User.findOneAndUpdate(
-      {_id: req.params.username},
+      { username: req.params.username },
       req.body,
       { new: true },
       function(err, user) {

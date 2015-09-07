@@ -1,10 +1,11 @@
 'use strict';
 
+var async = require('async');
+
 var RefreshToken = require('../models/refreshToken');
 var Client = require('../models/client');
 var User = require('../models/user');
 var redis = require('../services/redis');
-var async = require('async');
 
 function getClient(clientId, clientSecret, cb) {
   Client.findOne(

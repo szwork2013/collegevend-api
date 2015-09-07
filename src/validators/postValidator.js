@@ -1,6 +1,7 @@
 'use strict';
 
 var joi = require('joi');
+
 var joiValidator = require('./joiValidator');
 
 var schema = joi.object().keys({

@@ -1,6 +1,7 @@
 'use strict';
 
 var joi = require('joi');
+
 var joiValidator = require('./joiValidator');
 
 var passwordRegex = /^(?=.*\d+)(?=.+[a-z])(?=.*[A-Z])(?=.+[\W]).{12,}$/;

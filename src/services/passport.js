@@ -2,6 +2,7 @@
 
 var passport = require('passport');
 var BearerStrategy = require('passport-http-bearer');
+
 var User = require('../models/user');
 var redis = require('./redis');
 

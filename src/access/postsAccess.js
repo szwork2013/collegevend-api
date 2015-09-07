@@ -2,7 +2,7 @@
 
 var Post = require('../models/post');
 
-module.exports = function(req, res, next) {
+module.exports = function postsAccess(req, res, next) {
   Post.findById(
     req.params.id,
     '_user',

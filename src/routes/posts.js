@@ -2,7 +2,7 @@
 
 var postsController = require('../controllers/postsController');
 var postValidator = require('../validators/postValidator');
-var auth = require('../services/auth');
+var passport = require('../services/passport');
 var postsAccess = require('../access/postsAccess');
 
 module.exports = function(server) {
@@ -13,20 +13,20 @@ module.exports = function(server) {
   server.get('/posts/:id', postsController.getPostEntityAction);
   server.post(
     '/posts',
-    auth,
+    passport,
     postValidator,
     postsController.postPostEntityAction
   );
   server.put(
     'posts/:id',
-    auth,
+    passport,
     postsAccess,
     postValidator,
     postsController.putPostEntityAction
   );
   server.del(
     '/posts/:id',
-    auth,
+    passport,
     postsAccess,
     postsController.deletePostEntityAction
   );

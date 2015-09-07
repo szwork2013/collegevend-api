@@ -47,16 +47,25 @@ function getUser(username, password, cb) {
   User.findOne(
     { username: username },
     '_id password',
-    { lean: true },
     function onFindOneUser(err, user) {
       if (err) {
         return cb(err);
       }
-      // TO-DO: Encrypt and salt passwords!
-      if (!user || user.password !== password) {
+      if (!user) {
         return cb(null, false);
       }
-      return cb(null, { id: user._id });
+      user.comparePassword(
+        password,
+        function onComparePassword(err, matches) {
+          if (err) {
+            return cb(err);
+          }
+          if (!matches) {
+            return cb(null, false);
+          }
+          cb(null, { id: user._id });
+        }
+      );
     }
   );
 }

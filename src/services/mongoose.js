@@ -1,10 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var config = require('config');
 
-var config = require('../../config');
-
-mongoose.connect(config.services.mongoose.db);
+mongoose.connect(config.get('services.mongoose.db'));
 
 var db = mongoose.connection;
 

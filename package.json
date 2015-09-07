@@ -10,6 +10,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "bcrypt": "^0.8.5",
+    "config": "^1.16.0",
     "joi": "^6.6.1",
     "mongoose": "^4.1.3",
     "oauth2-server": "^2.4.1",

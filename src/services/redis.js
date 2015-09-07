@@ -1,13 +1,12 @@
 'use strict';
 
 var redis = require('redis');
-
-var config = require('../../config');
+var config = require('config');
 
 var client = redis.createClient(
-  config.services.redis.port,
-  config.services.redis.host,
-  config.services.redis.options
+  config.get('services.redis.port'),
+  config.get('services.redis.host'),
+  config.get('services.redis.options')
 );
 
 module.exports = client;

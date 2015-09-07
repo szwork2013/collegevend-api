@@ -13,6 +13,6 @@ module.exports = {
   },
   oauth2: {
     grants: [ 'password', 'refresh_token' ],
-    debug: true,
+    debug: false,
   },
 };

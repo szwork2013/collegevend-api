@@ -1,6 +1,6 @@
 'use strict';
 
-var mongoose = require('../services/mongodb');
+var mongoose = require('../services/mongoose');
 var encryptPassword = require('./plugins/encryptPassword');
 
 var userSchema = new mongoose.Schema({

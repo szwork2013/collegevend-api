@@ -1,6 +1,6 @@
 'use strict';
 
-var mongoose = require('../services/mongodb');
+var mongoose = require('../services/mongoose');
 
 var clientSchema = new mongoose.Schema({
   name: String,

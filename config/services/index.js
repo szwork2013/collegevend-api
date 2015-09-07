@@ -1,4 +1,4 @@
 module.exports = {
-  mongodb: require('./mongodb'),
+  mongoose: require('./mongoose'),
   redis: require('./redis'),
 };

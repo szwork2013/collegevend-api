@@ -15,4 +15,7 @@ module.exports = {
     grants: [ 'password', 'refresh_token' ],
     debug: false,
   },
+  cors: {
+    origins: ['*'],
+  },
 };

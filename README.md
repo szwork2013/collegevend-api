@@ -10,6 +10,9 @@ This app runs on Node.js, MongoDB, and Redis. Development was done with the foll
 - MongoDB `3.0.6`
 - Redis `3.0.3`
 
-## Grunt Tasks
+## Gulp Tasks
 
-`validate` - Run JSHint, JSCS, and Mocha tests with a coverage report.
+- `jshint`
+- `jscs`
+- `test`
+- `default`: [`jshint`, `jscs`, `test`]

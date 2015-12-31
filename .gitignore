@@ -1,4 +1,6 @@
 /.vagrant
 /node_modules
-/coverage.html
 /config/local.js
+/coverage
+.coverdata
+.coverrun

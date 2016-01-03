@@ -18,4 +18,7 @@ module.exports = {
   cors: {
     origins: ['*'],
   },
+  posts: {
+    limit: 25,
+  },
 };

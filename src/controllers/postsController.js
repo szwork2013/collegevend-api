@@ -1,14 +1,47 @@
 'use strict';
 
 var Post = require('../models/post');
+var config = require('config');
+
+var limit = config.get('posts.limit');
+
+function buildPostQuery(query) {
+  var conditions = {};
+  var projection = {};
+  var sort = {};
+
+  if (query.search !== undefined) {
+    conditions.$text = {
+      $search: query.search,
+    };
+    projection.score = {
+      $meta: 'textScore',
+    };
+    sort.score = {
+      $meta: 'textScore',
+    };
+  }
+
+  return {
+    conditions: conditions,
+    projection: projection,
+    sort: sort,
+  };
+}
 
 function getPostsCollectionAction(req, res, next) {
-  Post.find(function(err, posts) {
-    if (err) {
-      return next(err);
-    }
-    res.send(posts);
-  });
+  var query = buildPostQuery(req.query);
+
+  Post
+    .find(query.conditions, query.projection)
+    .sort(query.sort)
+    .limit(limit)
+    .exec(function(err, posts) {
+      if (err) {
+        return next(err);
+      }
+      res.send(posts);
+    });
 }
 
 function getPostEntityAction(req, res, next) {

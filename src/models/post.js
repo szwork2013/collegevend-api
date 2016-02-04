@@ -8,8 +8,18 @@ var postSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  price: Number,
-  description: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
 postSchema.set('toJSON', {

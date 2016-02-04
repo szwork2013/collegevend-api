@@ -5,6 +5,10 @@ var joi = require('joi');
 var joiValidator = require('./joiValidator');
 
 var schema = joi.object().keys({
+  title: joi
+    .string()
+    .min(10)
+    .required(),
   price: joi
     .number()
     .positive()
